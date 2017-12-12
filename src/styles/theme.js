@@ -11,14 +11,16 @@ export const darkGrey     = '#757575'
 export const grey         = '#DEDEDE'
 export const grey50       = 'rgba(222, 222, 222, 0.5)'
 export const grey30       = 'rgba(222, 222, 222, 0.7)'
+export const khaki        = '#748964'
+export const darkerGrey   = '#444444'
 
 // Palette
 export const palette = {
-  primary1Color: red,
+  primary1Color: khaki,
   primary2Color: green,
   primary3Color: green,
   accent1Color: green,
-  textColor: black,
+  textColor: darkerGrey,
   alternateTextColor: white,
   canvasColor: white,
   borderColor: grey,
