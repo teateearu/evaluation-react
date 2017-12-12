@@ -9,7 +9,7 @@ import {
 } from '../loading'
 import { BATCH_STUDENTS_UPDATED } from './subscribe'
 
-export const FETCHED_BATCHS = 'FETCHED_BATCHS'
+export const FETCHED_BATCHES = 'FETCHED_BATCHES'
 export const FETCHED_ONE_BATCH = 'FETCHED_ONE_BATCH'
 
 const api = new API()
@@ -24,7 +24,7 @@ export default () => {
         dispatch({ type: LOAD_SUCCESS })
 
         dispatch({
-          type: FETCHED_BATCHS,
+          type: FETCHED_BATCHES,
           payload: result.body
         })
       })
