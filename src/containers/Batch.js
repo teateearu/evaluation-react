@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { fetchOneBatch, fetchStudents } from '../actions/batches/fetch'
-import JoinBatchDialog from '../components/batches/JoinBatchDialog'
 
 const studentShape = PropTypes.shape({
   userId: PropTypes.string.isRequired,
@@ -56,14 +55,12 @@ class Batch extends PureComponent {
     return (
       <div className="Batch">
         <h1>Batch!</h1>
-        <p>{title}</p>
 
         <h1>YOUR BATCH HERE! :)</h1>
 
         <h2>Debug Props</h2>
         <pre>{JSON.stringify(this.props, true, 2)}</pre>
 
-        <JoinBatchDialog batchId={batch._id} />
       </div>
     )
   }
