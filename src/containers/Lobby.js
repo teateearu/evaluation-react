@@ -15,7 +15,7 @@ class Lobby extends PureComponent {
   render() {
     return (
       <div className="Lobby">
-        <h1>Lobby!</h1>
+        <h1>Batches</h1>
         <CreateBatchButton />
         <Paper className="paper">
           <Menu>

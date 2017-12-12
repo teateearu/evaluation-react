@@ -6,10 +6,10 @@ import { push } from 'react-router-redux'
 import signOut from '../../actions/user/sign-out'
 import AppBar from 'material-ui/AppBar'
 import IconButton from 'material-ui/IconButton'
-import BatchIcon from 'material-ui/svg-icons/hardware/videogame-asset'
+import BatchIcon from 'material-ui-icons/Assessment.js'
 import FlatButton from 'material-ui/FlatButton'
 
-const TITLE = 'Play Memory'
+const TITLE = 'Evaluation Tool'
 
 class Navigation extends PureComponent {
   static propTypes = {
@@ -39,7 +39,7 @@ class Navigation extends PureComponent {
         iconElementLeft={<IconButton onClick={this.goHome}><BatchIcon /></IconButton>}
         iconElementRight={signedIn ?
           <FlatButton label="Sign out" onClick={this.signOut.bind(this)} /> :
-          <FlatButton label="Sign up" onClick={this.signUp} />
+          <FlatButton label="Sign in" onClick={this.signIn} />
         }
       />
     )
