@@ -6,7 +6,7 @@ import { push } from 'react-router-redux'
 import signOut from '../../actions/user/sign-out'
 import AppBar from 'material-ui/AppBar'
 import IconButton from 'material-ui/IconButton'
-import BatchIcon from 'material-ui/svg-icons/hardware/videobatch-asset'
+import BatchIcon from 'material-ui/svg-icons/hardware/videogame-asset'
 import FlatButton from 'material-ui/FlatButton'
 
 const TITLE = 'Play Memory'
