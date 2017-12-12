@@ -1,5 +1,5 @@
-// src/actions/batches/fetch.js
-
+import { push } from 'react-router-redux'
+import { replace } from 'react-router-redux'
 import API from '../../api/client'
 import {
   APP_LOADING,
@@ -27,6 +27,7 @@ export default () => {
           type: FETCHED_BATCHES,
           payload: result.body
         })
+        dispatch(replace('/'))
       })
       .catch((error) => {
         dispatch({ type: APP_DONE_LOADING })
@@ -71,6 +72,7 @@ export const fetchOneBatch = (batchId) => {
 
     api.get(`/batches/${batchId}`)
       .then((result) => {
+        dispatch(push(`/${batchId}`))
         dispatch({ type: APP_DONE_LOADING })
         dispatch({ type: LOAD_SUCCESS })
 
