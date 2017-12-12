@@ -3,7 +3,6 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import fetchBatchs, { fetchStudents } from '../actions/batches/fetch'
-import { connect as subscribeToWebsocket } from '../actions/websocket'
 import CreateBatchButton from '../components/batches/CreateBatchButton'
 import Paper from 'material-ui/Paper'
 import Menu from 'material-ui/Menu'
@@ -17,7 +16,6 @@ import './Lobby.css'
 class Lobby extends PureComponent {
   componentWillMount() {
     this.props.fetchBatchs()
-    this.props.subscribeToWebsocket()
   }
 
   goToBatch = batchId => event => this.props.push(`/play/${batchId}`)
@@ -73,4 +71,4 @@ class Lobby extends PureComponent {
 
 const mapStateToProps = ({ batches, currentUser }) => ({ batches, currentUser })
 
-export default connect(mapStateToProps, { fetchBatchs, subscribeToWebsocket, fetchStudents, push })(Lobby)
+export default connect(mapStateToProps, { fetchBatchs, fetchStudents, push })(Lobby)

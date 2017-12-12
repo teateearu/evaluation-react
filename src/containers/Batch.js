@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { fetchOneBatch, fetchStudents } from '../actions/batches/fetch'
-import { connect as subscribeToWebsocket } from '../actions/websocket'
 import JoinBatchDialog from '../components/batches/JoinBatchDialog'
 
 const studentShape = PropTypes.shape({
@@ -15,7 +14,6 @@ class Batch extends PureComponent {
   static propTypes = {
     fetchOneBatch: PropTypes.func.isRequired,
     fetchStudents: PropTypes.func.isRequired,
-    subscribeToWebsocket: PropTypes.func.isRequired,
     batch: PropTypes.shape({
       _id: PropTypes.string.isRequired,
       userId: PropTypes.string.isRequired,
@@ -39,11 +37,6 @@ class Batch extends PureComponent {
   }
 
   componentWillMount() {
-    const { batch, fetchOneBatch, subscribeToWebsocket } = this.props
-    const { batchId } = this.props.match.params
-
-    if (!batch) { fetchOneBatch(batchId) }
-    subscribeToWebsocket()
   }
 
   componentWillReceiveProps(nextProps) {
@@ -59,9 +52,6 @@ class Batch extends PureComponent {
 
     if (!batch) return null
 
-    const title = batch.students.map(p => (p.name || null))
-      .filter(n => !!n)
-      .join(' vs ')
 
     return (
       <div className="Batch">
@@ -93,7 +83,6 @@ const mapStateToProps = ({ currentUser, batches }, { match }) => {
 }
 
 export default connect(mapStateToProps, {
-  subscribeToWebsocket,
   fetchOneBatch,
   fetchStudents
 })(Batch)
