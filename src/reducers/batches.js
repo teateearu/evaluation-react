@@ -13,16 +13,7 @@ export default (state = [], { type, payload } = {}) => {
       return [ ...payload ]
 
     case FETCHED_ONE_BATCH :
-      const batchIds = state.map(g => g._id)
-      if (batchIds.indexOf(payload._id) < 0) {
-        return [{ ...payload }].concat(state)
-      }
-      return state.map((batch) => {
-        if (batch._id === payload._id) {
-          return { ...payload }
-        }
-        return batch
-      })
+      return { ...payload }
 
     case BATCH_CREATED :
       const newBatch = { ...payload }
