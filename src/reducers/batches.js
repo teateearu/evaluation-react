@@ -1,5 +1,5 @@
 // src/reducers/batches.js
-import { FETCHED_BATCHS, FETCHED_ONE_BATCH } from '../actions/batches/fetch'
+import { FETCHED_BATCHES, FETCHED_ONE_BATCH } from '../actions/batches/fetch'
 import {
   BATCH_CREATED,
   BATCH_UPDATED,
@@ -9,7 +9,7 @@ import {
 
 export default (state = [], { type, payload } = {}) => {
   switch (type) {
-    case FETCHED_BATCHS :
+    case FETCHED_BATCHES :
       return [ ...payload ]
 
     case FETCHED_ONE_BATCH :
