@@ -15,7 +15,7 @@ class Lobby extends PureComponent {
     this.props.fetchBatches()
   }
   fetchBatch(id){
-    this.props.push(`/${id}`)
+    this.props.push(`/batch/${id}`)
     this.props.fetchOneBatch(id)
   }
   render() {
