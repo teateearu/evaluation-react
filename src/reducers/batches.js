@@ -3,8 +3,7 @@ import { FETCHED_BATCHES, FETCHED_ONE_BATCH } from '../actions/batches/fetch'
 import {
   BATCH_CREATED,
   BATCH_UPDATED,
-  BATCH_REMOVED,
-  BATCH_STUDENTS_UPDATED,
+  BATCH_REMOVED
 } from '../actions/batches/subscribe'
 
 export default (state = [], { type, payload } = {}) => {
@@ -23,14 +22,6 @@ export default (state = [], { type, payload } = {}) => {
       return state.map((batch) => {
         if (batch._id === payload._id) {
           return { ...payload }
-        }
-        return batch
-      })
-
-    case BATCH_STUDENTS_UPDATED :
-      return state.map((batch) => {
-        if (batch._id === payload.batch._id) {
-          return { ...payload.batch, students: payload.students }
         }
         return batch
       })
