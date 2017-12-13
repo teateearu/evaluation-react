@@ -39,11 +39,11 @@ export default () => {
   }
 }
 
-export const fetchStudents = (batch) => {
+export const fetchStudents = (batchId) => {
   return dispatch => {
     dispatch({ type: APP_LOADING })
 
-    api.get(`/batches/${batch._id}/students`)
+    api.get(`/batches/${batchId}/students`)
       .then((result) => {
         dispatch({ type: APP_DONE_LOADING })
         dispatch({ type: LOAD_SUCCESS })
@@ -51,7 +51,6 @@ export const fetchStudents = (batch) => {
         dispatch({
           type: BATCH_STUDENTS_UPDATED,
           payload: {
-            batch,
             students: result.body
           }
         })
@@ -72,7 +71,6 @@ export const fetchOneBatch = (batchId) => {
 
     api.get(`/batches/${batchId}`)
       .then((result) => {
-        dispatch(push(`/${batchId}`))
         dispatch({ type: APP_DONE_LOADING })
         dispatch({ type: LOAD_SUCCESS })
 
@@ -80,6 +78,7 @@ export const fetchOneBatch = (batchId) => {
           type: FETCHED_ONE_BATCH,
           payload: result.body
         })
+        dispatch(push(`/${batchId}`))
       })
       .catch((error) => {
         dispatch({ type: APP_DONE_LOADING })

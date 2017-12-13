@@ -53,3 +53,4 @@ const mapStateToProps = ({ currentUser }) => ({
 })
 
 export default connect(mapStateToProps, { push, signOut })(Navigation)
+// export default connect(mapStateToProps, { fetchBatches, push, signOut })(Navigation)
