@@ -8,7 +8,7 @@ import AppBar from 'material-ui/AppBar'
 import IconButton from 'material-ui/IconButton'
 import BatchIcon from 'material-ui-icons/Assessment.js'
 import FlatButton from 'material-ui/FlatButton'
-// import fetchBatches from '../actions/batches/fetch'
+import fetchBatches from '../../actions/batches/fetch'
 
 const TITLE = 'Evaluation Tool'
 
@@ -29,8 +29,8 @@ class Navigation extends PureComponent {
   }
 
   goHome = () => {
-    this.props.push('/')
-    // this.props.fetchBatches()
+    // this.props.push('/')
+    this.props.fetchBatches()
   }
 
   render() {
@@ -52,5 +52,5 @@ const mapStateToProps = ({ currentUser }) => ({
   signedIn: (!!currentUser && !!currentUser._id)
 })
 
-export default connect(mapStateToProps, { push, signOut })(Navigation)
-// export default connect(mapStateToProps, { fetchBatches, push, signOut })(Navigation)
+// export default connect(mapStateToProps, { push, signOut })(Navigation)
+export default connect(mapStateToProps, { fetchBatches, push, signOut })(Navigation)
