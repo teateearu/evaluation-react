@@ -5,7 +5,7 @@ import {
   LOAD_ERROR,
   LOAD_SUCCESS
 } from '../loading'
-import { STUDENTS_FETCHED } from 'STUDENTS_FETCHED'
+export const BATCH_STUDENTS_FETCHED = 'BATCH_STUDENTS_FETCHED'
 
 const api = new API()
 
@@ -19,10 +19,10 @@ export default () => {
         dispatch({ type: LOAD_SUCCESS })
 
         dispatch({
-          type: STUDENTS_FETCHED,
+          type: BATCH_STUDENTS_FETCHED,
           payload: result.body
         })
-        dispatch(replace('/'))
+
       })
       .catch((error) => {
         dispatch({ type: APP_DONE_LOADING })
