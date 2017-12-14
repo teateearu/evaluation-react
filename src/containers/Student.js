@@ -6,9 +6,7 @@ import fetchEvaluations from '../actions/evaluations/fetch'
 
 class Student extends PureComponent {
   componentWillMount(){
-    const { studentId } = this.props.match.params
-    fetchOneStudent(studentId)
-    this.props.fetchOneStudent(studentId)
+    if (this.props.students.length === 0) return this.props.push('/')
     this.props.fetchEvaluations()
   }
 
@@ -19,7 +17,7 @@ class Student extends PureComponent {
       <div className="Student">
        <h1>{ students.name }</h1>
        <img src={ students.photo } />
-       { studentEvaluations.map(evaluation => div style={ { background: evaluation.color }}/>)}
+       { evaluations.color}
       </div>
     )
   }

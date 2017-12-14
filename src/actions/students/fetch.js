@@ -7,6 +7,7 @@ import {
 } from '../loading'
 export const BATCH_STUDENTS_FETCHED = 'BATCH_STUDENTS_FETCHED'
 export const FETCHED_ONE_STUDENT = 'FETCHED_ONE_STUDENT'
+export const STUDENTS_FETCHED = 'STUDENTS_FETCHED'
 const api = new API()
 
 export default () => {
@@ -19,7 +20,7 @@ export default () => {
         dispatch({ type: LOAD_SUCCESS })
 
         dispatch({
-          type: BATCH_STUDENTS_FETCHED,
+          type: STUDENTS_FETCHED,
           payload: result.body
         })
 
@@ -57,5 +58,13 @@ export const fetchOneStudent = (studentId) => {
           payload: error.message
         })
       })
+  }
+}
+export const fetchBatchStudents = (batchId) => {
+  return (dispatch) => {
+    dispatch({
+      type: BATCH_STUDENTS_FETCHED,
+      payload: batchId
+    })
   }
 }
