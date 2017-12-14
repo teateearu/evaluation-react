@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import fetchOneBatch from '../actions/batches/fetch'
 import fetchStudents from '../actions/students/fetch'
 import fetchEvaluations from '../actions/evaluations/fetch'
+import fetchOneStudent from '../actions/students/fetch'
+import { push } from 'react-router-redux'
 
 class Batch extends PureComponent {
   static propTypes = {
@@ -11,8 +13,8 @@ class Batch extends PureComponent {
   }
 
   componentWillMount() {
-    const { batchId } = this.props.match.params
-    this.props.fetchOneBatch(batchId)
+    // const { batchId } = this.props.match.params
+    // this.props.fetchOneBatch(batchId)
     this.props.fetchStudents()
     this.props.fetchEvaluations()
   }
@@ -29,16 +31,21 @@ class Batch extends PureComponent {
     return evaluations[0].color
   }
 
+  toStudentPage(studentId){
+    this.props.push(`/student/${studentId}`)
+  }
+
   render() {
     const students = this.batchStudents()
+    const batches = this.props
     return (
       <div className="Batch">
-        <h1>Batch #{this.props.batches.batchNumber}</h1>
-        { students.map((student,index) => <div style={{background: this.lastStudentEvaluation(student._id)}} key={ `div${index}`}><img key={`img${index}`} src={ student.photo } alt='student'/> <p key={ index }>{ student.name } </p> </div> )}
+        <h1>Batch #{ this.props.batches.batchNumber }</h1>
+        { students.map((student,index) => <div onClick={ this.toStudentPage.bind(this, student._id)} style={ {background: this.lastStudentEvaluation(student._id)}} key={ `div${index}`}><img key={`img${index}`} src={ student.imageUrl } alt='student'/> <p key={ index }>{ student.name } </p> </div> )}
       </div>
     )
   }
 }
 
 const mapStateToProps = ({ batches, students, evaluations }) => ({ batches, students, evaluations })
-export default connect(mapStateToProps, { fetchOneBatch, fetchStudents, fetchEvaluations })(Batch)
+export default connect(mapStateToProps, { fetchOneBatch, fetchStudents, fetchEvaluations, fetchOneStudent, push })(Batch)
