@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import fetchBatches from '../actions/batches/fetch'
 import fetchStudents from '../actions/batches/fetch'
+import fetchEvaluations from '../actions/evaluations/fetch'
 import fetchOneBatch from '../actions/batches/fetch'
 import CreateBatchButton from '../components/batches/CreateBatchButton'
 import Paper from 'material-ui/Paper'
@@ -25,7 +26,7 @@ class Lobby extends PureComponent {
         <CreateBatchButton />
         <Paper className="paper">
           <Menu>
-            { this.props.batches.map((batch,index) => <h3 key={ index } onClick={this.fetchBatch.bind(this, batch._id)} > Batch #{ batch.batchNumber } </h3>) }
+            { this.props.batches.map((batch,index) => <h3 key={ index } onClick={this.fetchBatch.bind(this, batch._id)} >👥 #{ batch.batchNumber } </h3>) }
           </Menu>
         </Paper>
       </div>

@@ -29,7 +29,6 @@ class Navigation extends PureComponent {
   }
 
   goHome = () => {
-    // this.props.push('/')
     this.props.fetchBatches()
   }
 
@@ -52,5 +51,4 @@ const mapStateToProps = ({ currentUser }) => ({
   signedIn: (!!currentUser && !!currentUser._id)
 })
 
-// export default connect(mapStateToProps, { push, signOut })(Navigation)
 export default connect(mapStateToProps, { fetchBatches, push, signOut })(Navigation)
