@@ -13,8 +13,8 @@ class Batch extends PureComponent {
   }
 
   componentWillMount() {
-    const { batchId } = this.props.match.params
-    this.props.fetchOneBatch(batchId)
+    // const { batchId } = this.props.match.params
+    // this.props.fetchOneBatch(batchId)
     this.props.fetchStudents()
     this.props.fetchEvaluations()
   }
@@ -32,16 +32,15 @@ class Batch extends PureComponent {
   }
 
   toStudentPage(studentId){
-    const { batchId } = this.props.match.params
     this.props.push(`/student/${studentId}`)
   }
 
   render() {
     const students = this.batchStudents()
-    const lastStudentEvaluations = students.map(student => {return {...student, color: this.lastStudentEvaluation(student._id)}})
+    const batches = this.props
     return (
       <div className="Batch">
-        <h1>Batch #{this.props.batches.batchNumber}</h1>
+        <h1>Batch #{ this.props.batches.batchNumber }</h1>
         { students.map((student,index) => <div onClick={ this.toStudentPage.bind(this, student._id)} style={ {background: this.lastStudentEvaluation(student._id)}} key={ `div${index}`}><img key={`img${index}`} src={ student.imageUrl } alt='student'/> <p key={ index }>{ student.name } </p> </div> )}
       </div>
     )
