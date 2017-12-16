@@ -7,6 +7,9 @@ import fetchEvaluations from '../actions/evaluations/fetch'
 import fetchOneStudent from '../actions/students/fetch'
 import fetchBatchStudents from '../actions/students/fetch'
 import { push } from 'react-router-redux'
+import Paper from 'material-ui/Paper'
+import Menu from 'material-ui/Menu'
+import './Batch.css'
 
 class Batch extends PureComponent {
   static propTypes = {
@@ -44,17 +47,18 @@ class Batch extends PureComponent {
     const batchId = this.props.match.params
     const lastStudentEvaluations = students.map(student => {return {...student, color: this.lastStudentEvaluation(student._id)}})
     return (
-      <div>
-        <h1>Batch #{ batches.batchNumber }</h1>
-        { students.map((student,index) => <div onClick={ this.toStudentPage.bind(this, student._id)} key={ `div${index}`}><img key={`img${index}`} src={ student.photo } alt='student'/> <p key={ index }>{ student.name } </p> </div> )}
-        <div>
-        { students.map((student,index) =>
-             <div onClick={ this.toStudentPage.bind(this,student._id) } key={ `div${index}`}>
-             <div key={`img${index}`} style={{backgroundImage:'url(' + student.photo + ')'}}/> <h3 key={ index }>{ student.name } </h3>
-            </div>
-          )
-        }
-</div>
+      <div className="Batch">
+        <h1>Students:{ batches.batchNumber }</h1>
+        <Paper className="paper">
+          <Menu>
+            { students.map((student,index) =>
+              <div onClick={ this.toStudentPage.bind(this, student._id)} key={ `div${index}`}>
+                <p key={ index }>{ student.name }: </p>
+                <img key={`img${index}`} src={ student.photo } alt='student'/>
+              </div>
+            )}
+          </Menu>
+        </Paper>
       </div>
     )
   }

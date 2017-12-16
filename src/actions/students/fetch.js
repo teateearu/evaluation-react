@@ -7,7 +7,7 @@ import {
 } from '../loading'
 export const BATCH_STUDENTS_FETCHED = 'BATCH_STUDENTS_FETCHED'
 export const FETCHED_ONE_STUDENT = 'FETCHED_ONE_STUDENT'
-export const STUDENTS_FETCHED = 'STUDENTS_FETCHED'
+// export const STUDENTS_FETCHED = 'STUDENTS_FETCHED'
 const api = new API()
 
 export default () => {
@@ -20,7 +20,7 @@ export default () => {
         dispatch({ type: LOAD_SUCCESS })
 
         dispatch({
-          type: STUDENTS_FETCHED,
+          type: BATCH_STUDENTS_FETCHED,
           payload: result.body
         })
 

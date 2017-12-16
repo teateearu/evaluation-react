@@ -14,10 +14,9 @@ class Student extends PureComponent {
     const { students, evaluations } = this.props
     const studentEvaluations = evaluations.filter(evaluation => evaluation.student_id === students._id)
     return (
-      <div className="Student">
+      <div>
        <h1>{ students.name }</h1>
        <img src={ students.photo } />
-       { evaluations.color}
       </div>
     )
   }

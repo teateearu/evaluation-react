@@ -27,7 +27,6 @@ export default () => {
           type: FETCHED_BATCHES,
           payload: result.body
         })
-        dispatch(replace('/'))
       })
       .catch((error) => {
         dispatch({ type: APP_DONE_LOADING })
