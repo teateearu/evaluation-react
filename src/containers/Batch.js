@@ -53,7 +53,7 @@ class Batch extends PureComponent {
           <Menu>
             { students.map((student,index) =>
               <div onClick={ this.toStudentPage.bind(this, student._id)} key={ `div${index}`}>
-                <p key={ index }>{ student.name }: </p>
+                <h4 key={ index }>{ student.name }: </h4>
                 <img key={`img${index}`} src={ student.photo } alt='student'/>
               </div>
             )}
