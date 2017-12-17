@@ -67,6 +67,7 @@ class Batch extends PureComponent {
     const { students, batches, randomStudent } = this.props
     const batchId = this.props.match.params
     const lastStudentEvaluations = students.map(student => {return {...student, color: this.lastStudentEvaluation(student._id)}})
+
     return (
       <div className="Batch">
         <h1>Students:{ batches.batchNumber }</h1>

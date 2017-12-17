@@ -7,26 +7,28 @@ export default (state = [], { type, payload } = {}) => {
 
     case RANDOM_STUDENT_FETCHED :
 
-    const students = [...payload]
+      const students = [ ...payload ]
 
-    const greenStudents = students.filter(student => student.color === 'green')
-    const yellowStudents = students.filter(student => student.color === 'yellow')
-    const redStudents = students.filter(student => student.color === 'red')
+      const greenStudents = students.filter(student => student.color === 'green')
+      const yellowStudents = students.filter(student => student.color === 'yellow')
+      const redStudents = students.filter(student => student.color === 'red')
 
-    function pickStudentByColor(array) {return array[Math.floor(Math.random() * array.length)];}
+      function pickStudentByColor(array) {return array[Math.floor(Math.random() * array.length)];}
 
-    function pickRandomStudent() {
-      var number = Math.floor(Math.random() * 100 );
-      switch (true) {
-      case (number < 50) :
-        return pickStudentByColor(redStudents);
-      case (number <= 83) :
-        return pickStudentByColor(yellowStudents);
-      case (number > 83) :
-        return pickStudentByColor(greenStudents);
-      default :
-        return '???';
+      function pickRandomStudent() {
+        var number = Math.floor(Math.random() * 100 );
+        switch (true) {
+          case (number < 50) :
+            return pickStudentByColor(redStudents);
+          case (number <= 83) :
+            return pickStudentByColor(yellowStudents);
+          case (number > 83) :
+            return pickStudentByColor(greenStudents);
+          default :
+            return '???';
+        }
       }
-    }
+    default :
+      return 'lala';
   }
 }
