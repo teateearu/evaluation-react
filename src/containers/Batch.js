@@ -76,7 +76,7 @@ class Batch extends PureComponent {
     return (
       <div className="Batch">
         <h1>Students:{ batches.batchNumber }</h1>
-        <button onClick= { this.randomStudent.bind(this,lastStudentEvaluations) }>Ask a 'random' student</button>
+        <button className="button button5" onClick= { this.randomStudent.bind(this,lastStudentEvaluations) }>Ask a 'random' student</button>
         <img src={this.renderRandomStudentImage()}/>
         <p>{this.renderRandomStudentName()}</p>
         <Paper className="paper">

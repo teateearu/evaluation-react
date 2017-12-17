@@ -9,3 +9,16 @@
   padding: 10px;
   text-align: left;
 }
+
+.box {
+  text-align: left;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 5px;
+  text-indent: 10px;
+}
+
+h3:hover {
+  background-color: #e2e2e2;
+  color: hotpink;
+}

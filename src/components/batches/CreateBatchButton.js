@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton'
-import StarIcon from 'material-ui-icons/FlightLand.js'
+import StarIcon from 'material-ui-icons/SentimentSatisfied.js'
 import createBatch from '../../actions/batches/create'
 
 class CreateBatchButton extends PureComponent {
@@ -17,10 +17,10 @@ class CreateBatchButton extends PureComponent {
     return (
       <div className="CreateBatchButton">
         <RaisedButton
-          label=""
-          primary={true}
-          onClick={this.props.createBatch}
-          icon={<StarIcon />} />
+        label=""
+        primary={true}
+        onClick={this.props.createBatch}
+        icon={<StarIcon />} />
       </div>
     )
   }
