@@ -33,7 +33,7 @@ export default (state = [], { type, payload } = {}) => {
             break;
         }
         if (student !== null)
-        window.alert(student.name, student.photo);
+        window.alert("Ask " + student.name + "! Their last evaluation was " + student.color + ".");
         return student;
       break;
     default :
