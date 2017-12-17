@@ -11,12 +11,13 @@ export const RANDOM_STUDENT_FETCHED = 'RANDOM_STUDENT_FETCHED'
 export const STUDENTS_FETCHED = 'STUDENTS_FETCHED'
 const api = new API()
 
-export default () => {
+const _fetchStudents = () => {
   return (dispatch) => {
     dispatch({ type: APP_LOADING })
 
     api.get('/students')
       .then((result) => {
+        console.log(result)
         dispatch({ type: APP_DONE_LOADING })
         dispatch({ type: LOAD_SUCCESS })
 
@@ -35,7 +36,8 @@ export default () => {
       })
   }
 }
-
+export const fetchStudents = _fetchStudents;
+export default _fetchStudents;
 
 export const fetchOneStudent = (studentId) => {
   return dispatch => {

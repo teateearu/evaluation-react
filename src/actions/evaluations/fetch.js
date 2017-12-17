@@ -9,12 +9,13 @@ export const EVALUATIONS_FETCHED = 'EVALUATIONS_FETCHED'
 
 const api = new API()
 
-export default () => {
+export const fetchEvaluations = () => {
   return (dispatch) => {
     dispatch({ type: APP_LOADING })
 
     api.get('/evaluations')
       .then((result) => {
+
         dispatch({ type: APP_DONE_LOADING })
         dispatch({ type: LOAD_SUCCESS })
 

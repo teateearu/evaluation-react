@@ -1,4 +1,4 @@
-import EVALUATIONS_FETCHED from '../actions/evaluations/fetch'
+import { EVALUATIONS_FETCHED } from '../actions/evaluations/fetch'
 
 export default (state = [], { type, payload } = {}) => {
   switch (type) {

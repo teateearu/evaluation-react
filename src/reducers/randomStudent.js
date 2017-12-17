@@ -6,6 +6,7 @@ export default (state = [], { type, payload } = {}) => {
   switch (type) {
 
     case RANDOM_STUDENT_FETCHED :
+      console.log("hello")
 
       const students = [ ...payload ]
 
@@ -14,20 +15,26 @@ export default (state = [], { type, payload } = {}) => {
       const redStudents = students.filter(student => student.color === 'red')
 
       function pickStudentByColor(array) {return array[Math.floor(Math.random() * array.length)];}
-
-      function pickRandomStudent() {
+      var student = null;
         var number = Math.floor(Math.random() * 100 );
         switch (true) {
           case (number <= 50) :
-            return pickStudentByColor(redStudents);
+            student = pickStudentByColor(redStudents);
+            break;
           case (number <= 83) :
-            return pickStudentByColor(yellowStudents);
+            student = pickStudentByColor(yellowStudents);
+            break;
           case (number > 83) :
-            return pickStudentByColor(greenStudents);
+            student = pickStudentByColor(greenStudents);
+            break;
           default :
-            return '???';
+            student = null;
+            break;
         }
-      }
+        if (student !== null)
+        window.alert(student.name);
+        return student;
+      break;
     default :
       return 'lala';
   }

@@ -44,6 +44,7 @@ export const fetchStudents = (batchId) => {
 
     api.get(`/batches/${batchId}/students`)
       .then((result) => {
+        console.log(result)
         dispatch({ type: APP_DONE_LOADING })
         dispatch({ type: LOAD_SUCCESS })
 

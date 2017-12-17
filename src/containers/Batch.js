@@ -2,27 +2,31 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import fetchOneBatch from '../actions/batches/fetch'
-import fetchStudents from '../actions/students/fetch'
-import fetchEvaluations from '../actions/evaluations/fetch'
-import fetchOneStudent from '../actions/students/fetch'
-import fetchBatchStudents from '../actions/students/fetch'
+import {fetchStudents} from '../actions/students/fetch'
+// import {fetchStudents} from '../actions/batches/fetch'
+import {fetchEvaluations} from '../actions/evaluations/fetch'
+import {fetchOneStudent} from '../actions/students/fetch'
+import { fetchBatchStudents }from '../actions/students/fetch'
 import { push } from 'react-router-redux'
 import Paper from 'material-ui/Paper'
 import Menu from 'material-ui/Menu'
 import './Batch.css'
-import randomStudent from '../actions/students/fetch'
+import { randomStudent } from '../actions/students/fetch'
 
 class Batch extends PureComponent {
   static propTypes = {
     fetchStudents: PropTypes.func.isRequired,
-    fetchEvaluations: PropTypes.func.isRequired
+    fetchEvaluations: PropTypes.func.isRequired,
+    fetchBatchStudents: PropTypes.func.isRequired,
+    fetchOneBatch: PropTypes.func.isRequired,
+    fetchOneStudent: PropTypes.func.isRequired
   }
 
   componentWillMount() {
     const { batchId } = this.props.match.params
+    this.props.fetchStudents() ///IDK
     this.props.fetchOneBatch(batchId)
     this.props.fetchBatchStudents(batchId)
-    // this.props.fetchStudents() ///IDK
     this.props.fetchEvaluations()
   }
   // componentDidMount(){}
@@ -38,17 +42,18 @@ class Batch extends PureComponent {
 
   renderRandomStudentImage(){
     const { randomStudent } = this.props
-    const students = this.batchStudents()
-    const studentNames = students.map(student => student.name)
-    if (studentNames.indexOf(randomStudent.name) === -1) return
+    // const students = this.batchStudents()
+    // const studentNames = students.map(student => student.name)
+    // if (studentNames.indexOf(randomStudent.name) === -1) return
     return randomStudent.photo
   }
 
   renderRandomStudentName(){
     const { randomStudent } = this.props
-    const students = this.batchStudents()
-    const studentNames = students.map(student => student.name)
-    if (studentNames.indexOf(randomStudent.name) === -1) return
+    // const students = this.batchStudents()
+    // const studentNames = students.map(student => student.name)
+    // if (studentNames.indexOf(randomStudent.name) === -1) return
+    console.log(randomStudent.name)
     return randomStudent.name
   }
 
