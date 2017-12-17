@@ -18,7 +18,7 @@ export default (state = [], { type, payload } = {}) => {
       function pickRandomStudent() {
         var number = Math.floor(Math.random() * 100 );
         switch (true) {
-          case (number < 50) :
+          case (number <= 50) :
             return pickStudentByColor(redStudents);
           case (number <= 83) :
             return pickStudentByColor(yellowStudents);
