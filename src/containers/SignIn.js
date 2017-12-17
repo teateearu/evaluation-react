@@ -58,14 +58,12 @@ export class SignIn extends PureComponent {
             <TextField ref="password" type="password" hintText="Password"  />
           </div>
         </form>
-        <FlatButton
-          onClick={ this.signUp.bind(this) }
-          label="Sign up" />
+        <br/>
         <RaisedButton
           style={ buttonStyle }
           onClick={ this.submitForm.bind(this) }
           label="Sign in"
-          primary={true} />
+          primary={true} /><br/>
       </Paper>
     )
   }

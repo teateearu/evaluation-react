@@ -29,7 +29,7 @@ class Navigation extends PureComponent {
   }
 
   goHome = () => {
-    this.props.fetchBatches()
+    this.props.push('/')
   }
 
   render() {
@@ -40,7 +40,7 @@ class Navigation extends PureComponent {
         iconElementLeft={<IconButton onClick={this.goHome}><BatchIcon /></IconButton>}
         iconElementRight={signedIn ?
           <FlatButton label="Sign out" onClick={this.signOut.bind(this)} /> :
-          <FlatButton label="Sign up" onClick={this.signUp} />
+          <FlatButton label="Sign in" onClick={this.signIn} />
         }
       />
     )

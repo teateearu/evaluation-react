@@ -13,10 +13,7 @@
 .colorbubble {
   display: inline-block;
   float: left;
-  margin-top: 20px;
-  margin-left: 20px;
-  margin-bottom: 20px;
-  margin-right: 20px;
+  margin: 20px;
   height: 250px;
   width: 180px;
   border-radius: 100px;
