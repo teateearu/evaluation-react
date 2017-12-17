@@ -76,16 +76,16 @@ class Batch extends PureComponent {
     return (
       <div className="Batch">
         <h1>Students:{ batches.batchNumber }</h1>
-        <button onClick= { this.randomStudent.bind(this,lastStudentEvaluations) }>Random Student</button>
+        <button onClick= { this.randomStudent.bind(this,lastStudentEvaluations) }>Ask a 'random' student</button>
         <img src={this.renderRandomStudentImage()}/>
         <p>{this.renderRandomStudentName()}</p>
         <Paper className="paper">
           <Menu>
             { students.map((student,index) =>
-              <div onClick={ this.toStudentPage.bind(this, student._id)} key={ `div${index}`}>
+              <div className='colorbubble' onClick={ this.toStudentPage.bind(this, student._id)} style={ {background: this.lastStudentEvaluation(student._id)}} key={ `div${index}`}>
                 <h4 key={ index }>{ student.name }: </h4>
                 <img key={`img${index}`} src={ student.photo } alt='student'/>
-                { this.lastStudentEvaluation(student._id) }
+
               </div>
             )}
           </Menu>
