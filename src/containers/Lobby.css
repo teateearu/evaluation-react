@@ -22,3 +22,7 @@ h3:hover {
   background-color: #e2e2e2;
   color: hotpink;
 }
+
+h3 .dates {
+  font-size: 70%;
+}
