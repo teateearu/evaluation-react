@@ -78,7 +78,7 @@ export const fetchOneBatch = (batchId) => {
           type: FETCHED_ONE_BATCH,
           payload: result.body
         })
-        dispatch(push(`/${batchId}`))
+        dispatch(push(`/batch/${batchId}`))
       })
       .catch((error) => {
         dispatch({ type: APP_DONE_LOADING })
