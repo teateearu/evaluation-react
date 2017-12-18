@@ -24,10 +24,11 @@ class Batch extends PureComponent {
 
   componentWillMount() {
     const { batchId } = this.props.match.params
+    this.props.fetchEvaluations()
     this.props.fetchStudents() ///IDK
     this.props.fetchOneBatch(batchId)
     this.props.fetchBatchStudents(batchId)
-    this.props.fetchEvaluations()
+
   }
   // componentDidMount(){}
 
@@ -42,17 +43,17 @@ class Batch extends PureComponent {
 
   renderRandomStudentImage(){
     const { randomStudent } = this.props
-    // const students = this.batchStudents()
-    // const studentNames = students.map(student => student.name)
-    // if (studentNames.indexOf(randomStudent.name) === -1) return
+    const students = this.batchStudents()
+    const studentNames = students.map(student => student.name)
+    if (studentNames.indexOf(randomStudent.name) === -1) return
     return randomStudent.photo
   }
 
   renderRandomStudentName(){
     const { randomStudent } = this.props
-    // const students = this.batchStudents()
-    // const studentNames = students.map(student => student.name)
-    // if (studentNames.indexOf(randomStudent.name) === -1) return
+    const students = this.batchStudents()
+    const studentNames = students.map(student => student.name)
+    if (studentNames.indexOf(randomStudent.name) === -1) return
     console.log(randomStudent.name)
     return randomStudent.name
   }

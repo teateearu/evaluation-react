@@ -11,6 +11,10 @@ class CreateBatchButton extends PureComponent {
     signedIn: PropTypes.bool,
   }
 
+  alert(){
+    window.alert();
+  }
+
   render() {
     if (!this.props.signedIn) return null
 
@@ -19,7 +23,7 @@ class CreateBatchButton extends PureComponent {
         <RaisedButton
         label=""
         primary={true}
-        onClick={this.props.createBatch}
+        onClick={() => alert("This button does nothing :)")}
         icon={<StarIcon />} />
       </div>
     )

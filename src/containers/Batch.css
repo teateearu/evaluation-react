@@ -11,6 +11,8 @@
 }
 
 .colorbubble {
+  color: #fffdf4;
+  text-shadow: -1px 0 #4857af, 0 1px #4857af, 1px 0 #4857af, 0 -1px #4857af;
   display: inline-block;
   float: left;
   margin: 20px;
