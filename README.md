@@ -10,4 +10,4 @@ Run it with 'yarn start' and in another tab the corresponding API https://github
 
 ![Screenshot](http://res.cloudinary.com/teateearu/image/upload/v1515590813/randomstudent_ipte8n.png "Optional title")
 
-![Screenshot](http://res.cloudinary.com/teateearu/image/upload/v1515590806/studentspage_cr8rru.jpg "Optional title")
+![Screenshot](http://res.cloudinary.com/teateearu/image/upload/v1515590806/studentspage_cr8rru.jpg "Optional title") 
