@@ -1,4 +1,4 @@
-# README
+# EVALUATION TOOL
 
 An app that lists batches of students, each student has been evaluated with either green, yellow or red.
 
